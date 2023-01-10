@@ -1,0 +1,43 @@
+@import "src/assets/styles/variables/colors";
+
+.todo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px 24px;
+
+  &:not(:host:last-child > &) {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    &-keeper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+
+      &_done {
+        opacity: .6;
+      }
+    }
+  }
+
+  &__action {
+    &_delete {
+      background: $error;
+
+      &:hover {
+        background: $white;
+        color: $error;
+        border-color: $error;
+      }
+    }
+
+    &-keeper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+}

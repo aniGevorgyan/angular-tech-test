@@ -1,0 +1,22 @@
+<div class="todo"*ngIf="!updateFormShown; else updateForm">
+  <div *ngIf="data" class="todo__title-keeper" [class.todo__title-keeper_done]="!!data?.done">
+    <h3 class="todo__title">{{data.description}}</h3>
+    <h4 class="todo__label">{{data.label}}</h4>
+    <h5 class="todo__category">{{data.category}}</h5>
+    <h6 *ngIf="data.done" class="todo__done">Date: {{data.done}}</h6>
+  </div>
+  <div class="todo__action-keeper">
+    <button class="todo__action todo__action_done" (click)="doneTask()">
+      {{!data.done ? 'Done' : 'Undone' }}
+    </button>
+    <button class="todo__action todo__action_edit" (click)="updateFormShown=true">
+      Edit
+    </button>
+    <button class="todo__action todo__action_delete" (click)="deleteTask()">
+      Delete
+    </button>
+  </div>
+</div>
+<ng-template #updateForm>
+  <app-add-form [defaultData]="data" (cancelled)="updateFormShown=false" (updated)="todoUpdated($event)"></app-add-form>
+</ng-template>

@@ -1,0 +1,8 @@
+@import "../variables/colors";
+
+input, textarea {
+  border-radius: 0;
+  border: 1px solid $dark;
+  padding: 8px 12px;
+  resize: none;
+}

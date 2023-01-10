@@ -1,0 +1,32 @@
+<div
+  class="todo-list"
+>
+  <ng-container *ngIf="!loading; else skeletonLoading">
+    <cdk-virtual-scroll-viewport
+      class="todo-list__virtual-space"
+      [itemSize]="108"
+      [maxBufferPx]="216"
+    >
+      <app-todo-element *cdkVirtualFor="let todo of todos" [data]="todo" (updated)="todoUpdated($event.id, $event.todo)" (deleted)="todoDeleted($event)"></app-todo-element>
+    </cdk-virtual-scroll-viewport>
+  </ng-container>
+  <div class="todo-list__action-keeper" *ngIf="!addFormShown; else addForm">
+    <button class="todo-list__action" (click)="showAddForm()">
+      Add Task
+    </button>
+  </div>
+</div>
+
+<ng-template #addForm>
+  <app-add-form
+    (created)="newTaskCreated($event)"
+    (cancelled)="cancelledTaskCreation()"
+  ></app-add-form>
+</ng-template>
+
+<ng-template #skeletonLoading>
+  <ngx-skeleton-loader
+    [count]="5"
+    appearance="line"
+  ></ngx-skeleton-loader>
+</ng-template>

@@ -1,0 +1,26 @@
+$media_queries: (
+  mobile  : screen and (max-width: 580px),
+  tablet  : screen and (min-width: 581px) and (max-width: 1024px),
+  desktop : screen and (min-width: 1025px) and (max-width: 1440px),
+  large   : screen and (min-width: 1441px),
+);
+
+@mixin breakpoint($breakpoints, $custom-media: '') {
+  $conditions: ();
+  @if (length($breakpoints) > 0) {
+    @each $breakpoint in $breakpoints {
+      // If the key exists in the map
+      $conditions: append(
+          $conditions,
+          #{inspect(map-get($media_queries, $breakpoint))},
+          comma
+      );
+    }
+  } @else {
+    $conditions: $custom-media;
+  }
+
+  @media #{$conditions} {
+    @content;
+  }
+}

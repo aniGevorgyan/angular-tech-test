@@ -1,0 +1,14 @@
+<form class="add-form" (submit)="createNewTask()" [formGroup]="addForm">
+  <textarea class="add-form__field" placeholder="description" formControlName="description"></textarea>
+  <input type="text" formControlName="label" placeholder="Label">
+  <input type="text" formControlName="category" placeholder="Category">
+
+  <div class="add-form__action-keeper">
+    <button type="submit" class="add-form__action" [disabled]="addForm.invalid">
+      Save
+    </button>
+    <button type="button" class="add-form__action add-form__action_cancel" (click)="cancelled.emit()" outline>
+      Cancel
+    </button>
+  </div>
+</form>

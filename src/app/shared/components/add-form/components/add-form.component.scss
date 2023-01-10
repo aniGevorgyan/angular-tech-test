@@ -1,0 +1,12 @@
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__action {
+    &-keeper {
+      display: flex;
+      gap: 12px;
+    }
+  }
+}

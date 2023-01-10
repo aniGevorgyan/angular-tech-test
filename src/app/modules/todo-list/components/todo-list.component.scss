@@ -1,0 +1,6 @@
+.todo-list {
+  &__virtual-space {
+    max-height: calc(100vh - 312px);
+    height: 100vh;
+  }
+}

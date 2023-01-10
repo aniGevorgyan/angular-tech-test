@@ -1,0 +1,35 @@
+@mixin heading-1() {
+  font-size: 2rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+}
+
+@mixin heading-2() {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+@mixin heading-3() {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+}
+
+@mixin heading-4() {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+@mixin heading-5() {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+@mixin heading-6() {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
